@@ -1,0 +1,24 @@
+BigO cheatsheet - https://zerotomastery.io/cheatsheets/big-o-cheat-sheet/
+
+What is good code
+Readable - Understandable by others
+Scalable - By use of BigO We can check whether it is Scalable.
+
+By use of BigO We can measure the performance and scalablity of the code
+
+Big-O notation is used to measure the complexity of an algorithm, 
+specifically in terms of its performance as the size of its input grows. It measures the performance and how many
+operations will the code use to do certain things.
+
+O(n) -- Explanation
+
+In Big-O notation, 
+O(n) represents linear time complexity.
+
+Key Characteristics:
+Growth: The algorithm's runtime grows proportionally to the size of the input n.
+Behavior: For each additional input element, the algorithm performs one additional basic operation.
+Example: Parctice.js File
+A simple for loop iterating over an array of 
+n=1,000, it takes 1,000 steps.
+
