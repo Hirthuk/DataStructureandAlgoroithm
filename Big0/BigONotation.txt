@@ -10,7 +10,7 @@ Big-O notation is used to measure the complexity of an algorithm,
 specifically in terms of its performance as the size of its input grows. It measures the performance and how many
 operations will the code use to do certain things.
 
-O(n) -- Explanation
+O(n) -- Linear time-- Explanation
 
 In Big-O notation, 
 O(n) represents linear time complexity.
@@ -22,3 +22,91 @@ Example: Parctice.js File
 A simple for loop iterating over an array of 
 n=1,000, it takes 1,000 steps.
 
+O(1) -- Constant time -- Explanation
+
+In BigO notation O(1) represents the constant time.
+Means the the graph to the number of operations and input is constant
+O(1) - 1,1 = Input is one then the operation also one
+O(2) - 2,2 in graph of input X number of operations. so the line would be constant and it is excellent notation
+among other BigO notation because of the predictablity.
+
+Check -- Constant.js
+Practice - Exercise1.js
+Exercise2.js 
+
+There are rules to follow to calculate the overall bigo notation of a code or function
+1) Worst case
+2) Remove constant
+3) Different terms for inputs
+4) Drop Non Dominants
+
+1) Worst case
+Always go for the worst case notation. In Nemo PracticeO(n) - if nemo word is found in the first element of array
+We can get that in first step itself - O(1) like that. but mostly we are unaware of the input and things.
+Always things for worst case like the nemo begin the last element in the array and loop have to run till last
+so input == operations increase O(n)
+
+2) Remove constants 
+The rule "Remove Constants" in Big-O means we ignore fixed numbers or multipliers when 
+calculating the complexity of an algorithm. 
+This is because constants don't matter when the input size grows very large—we care 
+more about how fast the algorithm grows overall.
+
+instead n+n+n = O(3n) = O(n) 
+O(1) + O(100) = O(101) = O(1)
+
+### Simple Examples:
+1. **Single Loop**: 
+   ```javascript
+   for (let i = 0; i < n; i++) console.log(i);
+   ```
+   Runs `n` times, so complexity is \( O(n) \). We ignore any constant time per operation.
+
+2. **Two Loops**:
+   ```javascript
+   for (let i = 0; i < n; i++) console.log(i);
+   for (let j = 0; j < n; j++) console.log(j);
+   ```
+   Runs `n + n = 2n` times. Ignore the constant `2`, so it’s still \( O(n) \).
+
+3. **Nested Loops**:
+   ```javascript
+   for (let i = 0; i < n; i++) {
+       for (let j = 0; j < n; j++) console.log(i, j);
+   }
+   ```
+   Runs \( n \times n = n^2 \) times. Ignore any constant multiplier, so it’s \( O(n^2) \).
+
+### Key Idea:
+Constants don’t change the growth pattern of an algorithm; we focus on the big picture of how it scales with the input size.
+
+3) Different forms of input
+Not neccesarily every function takes single input. It can take multiple inputs which is not relevant to eachother
+
+The third rule, **"Different Terms for Inputs,"** means that if an algorithm has multiple inputs, 
+we consider each input separately when calculating Big-O.
+
+### Key Points:
+- If there are two inputs, say `n` and `m`, and they affect the algorithm differently, we represent them as separate terms.
+- We don't combine different inputs unless they directly depend on each other.
+
+### Examples:
+1. **Two Separate Loops**:
+   ```javascript
+   for (let i = 0; i < n; i++) console.log(i);
+   for (let j = 0; j < m; j++) console.log(j);
+   ```
+   The time complexity is \( O(n + m) \), as the loops run independently.
+
+2. **Nested Loops with Different Inputs**:
+   ```javascript
+   for (let i = 0; i < n; i++) {
+       for (let j = 0; j < m; j++) console.log(i, j);
+   }
+   ```
+   Additional my example DifInput.js
+   The time complexity is \O(n*m), as the outer loop depends on `n` and the inner loop depends on `m`.
+   If the both outer and inner loop depends on n value then it would be O(n^2) --> Next up this only
+
+### Key Idea:
+When dealing with multiple inputs, treat them separately unless they are interconnected.

@@ -12,7 +12,8 @@ let time0 = performance.now();
 const findNemo = (array) => {
    for(let i=0; i < array.length; i++){
     if(array[i]=== "nemo"){
-        console.log("foundNemo")
+        console.log("foundNemo");
+        break; // Once found loop will stop
     }
    }
 
