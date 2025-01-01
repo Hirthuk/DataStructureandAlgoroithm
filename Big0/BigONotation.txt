@@ -106,7 +106,30 @@ we consider each input separately when calculating Big-O.
    ```
    Additional my example DifInput.js
    The time complexity is \O(n*m), as the outer loop depends on `n` and the inner loop depends on `m`.
-   If the both outer and inner loop depends on n value then it would be O(n^2) --> Next up this only
+   If the both outer and inner loop depends on n value/Using nested Loop then it would be O(n^2) --> Next up this only
 
 ### Key Idea:
 When dealing with multiple inputs, treat them separately unless they are interconnected.
+
+As part of this different forms of input we can get another BigO notation
+o(n^2) - Quadratic time which is horrible state bigO notation. Mostly the nested loops are using 
+this notation. example PraciceOn2.js
+
+In Simple = nested loop n*2 and one after another loop then a+basic
+
+Quadratic time \( O(n^2) \) means the number of operations grows as the square of the 
+input size \( n \). This typically happens with nested loops, 
+where one loop runs \( n \) times and another loop inside it also runs \( n \) times. 
+For example, processing all pairs of items in an array of size \( n \) results in \( n \times n \)
+operations. As \( n \) gets larger, the runtime increases very quickly compared 
+to \( O(n) \) or \( O(\log n) \) - It is not recommended and mostly would be asked to work with other 
+notation.
+
+4) Drop Non Dominants
+Example - PracticeRule4.js
+
+The **Drop Non-Dominants** rule in Big-O focuses on keeping only the term that grows the fastest as the input size \( n \) increases. 
+Smaller or less significant terms are dropped because they have minimal impact on the algorithm's scalability for large inputs. 
+For example, in \( O(n^2 + n + 1) \), the \( n^2 \) term dominates, so we simplify it to \( O(n^2) \). This makes Big-O notation 
+concise and focuses on the most critical aspect of an algorithm's growth.
+ It's a way to generalize and ignore details that don't matter at scale.
