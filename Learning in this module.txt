@@ -1,1 +1,5 @@
 1) Big -0 Notation
+By use of this notation we have different Data structures(array, hash map) and which algorithm to use(based on best notation we can find out)
+for certain need certain algorithm and certain data strcuture will be best suited and we can find that using 
+this.
+

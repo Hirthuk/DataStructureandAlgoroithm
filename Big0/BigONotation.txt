@@ -4,6 +4,9 @@ What is good code
 Readable - Understandable by others
 Scalable - By use of BigO We can check whether it is Scalable.
 
+Time - complexity focuses on execution time.
+Space - complexity focuses on memory usage.
+
 By use of BigO We can measure the performance and scalablity of the code
 
 Big-O notation is used to measure the complexity of an algorithm, 
@@ -133,3 +136,29 @@ Smaller or less significant terms are dropped because they have minimal impact o
 For example, in \( O(n^2 + n + 1) \), the \( n^2 \) term dominates, so we simplify it to \( O(n^2) \). This makes Big-O notation 
 concise and focuses on the most critical aspect of an algorithm's growth.
  It's a way to generalize and ignore details that don't matter at scale.
+
+ 
+ Space complexity
+
+ ### What is Space Complexity?  
+Space complexity refers to the total amount of memory an algorithm uses, including the memory for:  
+1. **Input data**: Memory used to store the input.  
+2. **Auxiliary space**: Memory used by variables, data structures, or recursion.  
+3. **Function call stack**: Memory used by the stack during recursive calls.  
+
+### What Causes Space Complexity?  
+1. **Variables**: Memory needed for integers, arrays, objects, etc.  
+2. **Data Structures**: Storing intermediate data like hashmaps, stacks, or queues.  
+3. **Recursion**: Extra memory for function calls stored in the call stack.  
+4. **Input Size**: Larger inputs may require proportionally larger memory.  
+
+So we have to check the above things while determining space complexity notation.. Example PracticeSpace.js
+All the rule we defined for time complexity applies to space complexity as well --> Spaceexplantion.txt --check
+### Relation with Big-O:  
+Big-O notation is used to express **space complexity** the same way as time complexity. It describes how memory usage grows with the size of the input \( n \).  
+- Example: An algorithm with \( O(n) \) space complexity requires memory proportional to \( n \).  
+- Recursive algorithms often have higher space complexity due to the call stack.  
+
+### Key Difference from Time Complexity:  
+While time complexity measures the **number of operations**, space complexity measures the **amount of memory** used. Both are essential to evaluating an algorithm's efficiency.
+
