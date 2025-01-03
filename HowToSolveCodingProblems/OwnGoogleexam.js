@@ -21,11 +21,22 @@ function FindSumPair(array, sumNumber) {
 }
 
 function Betterway(array, sum){
+  // Array is sorted given instruct. So first element can't be greater than sum. if there pair wouldn't be 
+  // there
+ //Instead of two for loops one for loop and if statement still it is not best O(n^2) only - Same input array
+//  is used twice
+  for(let i =0; i<array.length; i++){
+    // let value = array[i]-sum;
+    if(array.includes(sum - array[i])){
+        console.log("pair found")
+    }
+  }
  
 
 }
 
-FindSumPair([1, 2], 3);
+// FindSumPair([1, 2], 3);
 
+Betterway([1, 2], 3);
 //Different better way to do this -
 // https://www.youtube.com/watch?v=21pmwl0hrME - this one and this problem try to solve
