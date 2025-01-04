@@ -35,6 +35,26 @@ function Betterway(array, sum){
 
 }
 
+// So Actual thing - Above both functions still use O(n2) array.includes() still go thorough elements
+// ony by one
+// There is a thing called HashMap(Set) - Where it have has method which is constant O(1) based on the in build method
+// So we can use hash map even if not sorted
+//  https://www.bigocheatsheet.com/ - Hash map search is O(1) - Constant
+function UsingHashMap(array,sum) {
+  const HashSet = new Set(); // Stores unique values of any type and prevent insertion order
+
+  for(element in array){
+    const deductor = sum - element;
+    if(HashSet.has(deductor)){
+      console.log("Pair found")
+      return true;
+    }
+    HashSet.add(deductor);
+  }
+  console.log("No pair found");
+  return false;
+}
+
 // FindSumPair([1, 2], 3);
 
 Betterway([1, 2], 3);
