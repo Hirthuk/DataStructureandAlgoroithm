@@ -1,0 +1,7 @@
+Datastructure - How to store the Data
+Algorithm - How to manipulated and retrive data in the Datastructure.
+
+A **data structure** is a way of organizing, storing, and managing data 
+efficiently to enable easy access, modification, and usage. It provides a structured format 
+for solving computational problems effectively, 
+such as arrays, linked lists, stacks, queues, trees, and graphs.
