@@ -4,7 +4,7 @@
 // Difference between O(a*b) and O(a+b) below
 
 const array1 = [1, 2, 3, 4];
-const arrary2 = [5];
+const array2 = [5];
 
 function worstAlgorithm(array1, array2) {
   for (let i = 0; i < array1.length; i++) {

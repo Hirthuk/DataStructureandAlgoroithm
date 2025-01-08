@@ -1,0 +1,40 @@
+An **array** is a linear data structure that stores elements in contiguous memory locations, 
+allowing random access using indices. Arrays are efficient for static data with predictable sizes but 
+are less flexible than dynamic structures like linked lists.
+
+BigO Notations
+Insertion - O(n)
+Deletion - O(n)
+Access - O(1) - Constant time complexity
+lookup/search - O(n)
+
+All these operations methods with thier BigO Notation in ArrayIntro.js
+
+Difference between Static and Dynamic array
+
+
+
+| **Feature**       | **Static Array**                                                                                  | **Dynamic Array**                                                                                      |
+|--------------------|--------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------|
+| **Size**           | Fixed at creation. The size must be defined at the time of declaration and cannot change later.  | Flexible size. The array can grow or shrink dynamically during runtime based on requirements.          |
+| **Resizing**       | Resizing is not possible. If more space is needed, a new array must be created.                  | Automatically resizes when full (typically doubles in capacity) and can shrink if needed.              |
+| **Memory Usage**   | Memory is allocated upfront, whether fully utilized or not. Can result in wasted memory.         | Allocates memory dynamically as needed, but resizing involves copying elements to a new array.         |
+| **Performance**    | Faster as there is no overhead of resizing or copying elements.                                  | Slower due to the overhead of resizing and copying elements during capacity expansion.                 |
+| **Usage**          | Best for cases where the size is known and fixed throughout the program.                         | Suitable for scenarios where the size is unpredictable or varies frequently.                           |
+| **Languages**      | Common in low-level languages like C and C++ (e.g., `int arr[5]`).                               | Used in high-level languages like JavaScript (`let arr = [];`) and Python (`list`).                    |
+
+---
+
+### **Explanation**
+
+- **Static Arrays**:  
+  Static arrays are efficient for predictable, fixed-size data because their memory layout is simple and consistent. 
+  However, they are inflexible, and any need for resizing requires creating and copying data into a new array manually.
+
+- **Dynamic Arrays**:  
+  Dynamic arrays provide flexibility and ease of use, especially in high-level programming. 
+  When the array reaches capacity, it resizes (usually doubles in size), which involves allocating a larger memory block and copying existing elements. This resizing adds overhead, making it less efficient than static arrays for consistent, small-sized data.  
+
+### **Example Scenarios**
+- **Static Array**: Managing student roll numbers in a fixed-size classroom (e.g., `int roll[30];`).  
+- **Dynamic Array**: Handling a shopping cart where items are added or removed frequently (`let cart = [];`).  
