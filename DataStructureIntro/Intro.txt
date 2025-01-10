@@ -5,3 +5,21 @@ A **data structure** is a way of organizing, storing, and managing data
 efficiently to enable easy access, modification, and usage. It provides a structured format 
 for solving computational problems effectively, 
 such as arrays, linked lists, stacks, queues, trees, and graphs.
+
+Usage of different Datastructure because each has it's own functionality mainly depends on 3 -
+
+Readble, Time complexity, space complexity
+Time complexity - CPU
+Space complexity - RAM(In memory storage), Persistent storage.
+
+Operations Done in different Datastructure;
+Insertion
+Deletion
+Sorting
+Traversal - Going through all the elements in the DS(Datastructure)
+Accessing 
+
+Each Datastructure will have different functionality based on operations.
+Some might be best in searching and some might be best with Insertion
+https://www.bigocheatsheet.com/ - Check the Diagram for reference
+
