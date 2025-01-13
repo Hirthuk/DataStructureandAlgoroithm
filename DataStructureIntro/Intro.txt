@@ -23,3 +23,5 @@ Each Datastructure will have different functionality based on operations.
 Some might be best in searching and some might be best with Insertion
 https://www.bigocheatsheet.com/ - Check the Diagram for reference
 
+
+Some language have inbuilt different datastrcutre and we can create also 
