@@ -1,0 +1,165 @@
+### **Context in JavaScript**
+
+In JavaScript, **context** refers to the value of `this` within a particular part of code, which depends on how the function is called. Unlike scope, which deals with variable accessibility, context is more about the object that is "executing" the current code.
+
+---
+
+### **Key Points about Context**:
+1. **Dynamic Nature**: Context (`this`) is determined at runtime, based on how the function is invoked.
+2. **Global Context**: In the global execution environment (outside any function), `this` refers to the global object (`window` in browsers or `global` in Node.js).
+3. **Function Context**: Inside a function, `this` can change depending on whether the function is called as a method, a standalone function, or using explicit binding.
+4. **Arrow Functions**: Arrow functions do not have their own `this`. They inherit `this` from the surrounding lexical scope.
+
+---
+
+### **Types of Context**
+
+#### 1. **Global Context**
+In the global scope, `this` refers to the global object.
+
+**Example**:
+```javascript
+console.log(this); // Window (in browsers) or Global (in Node.js)
+```
+
+---
+
+#### 2. **Object Context**
+When a method is called on an object, `this` refers to that object.
+
+**Example**:
+```javascript
+const obj = {
+  name: "Alice",
+  greet: function () {
+    console.log(`Hello, ${this.name}`);
+  }
+};
+
+obj.greet(); // Output: Hello, Alice (this refers to obj)
+```
+
+---
+
+#### 3. **Standalone Function Context**
+When a function is called without an object, `this` defaults to the global object in non-strict mode or `undefined` in strict mode.
+
+**Example**:
+```javascript
+function showThis() {
+  console.log(this);
+}
+
+showThis(); // Window (non-strict mode), undefined (strict mode)
+```
+
+---
+
+#### 4. **Explicit Binding**
+You can explicitly set `this` using the following methods:
+- **`call`**: Invokes the function and explicitly sets `this`.
+- **`apply`**: Similar to `call`, but arguments are passed as an array.
+- **`bind`**: Returns a new function with `this` permanently set to the specified value.
+
+**Example**:
+```javascript
+function greet() {
+  console.log(`Hello, ${this.name}`);
+}
+
+const user = { name: "Bob" };
+greet.call(user); // Output: Hello, Bob
+greet.apply(user); // Output: Hello, Bob
+
+const boundGreet = greet.bind(user);
+boundGreet(); // Output: Hello, Bob
+```
+
+---
+
+#### 5. **Constructor Context**
+When a function is called with `new`, a new object is created, and `this` refers to the newly created object.
+
+**Example**:
+```javascript
+function Person(name) {
+  this.name = name;
+}
+
+const person1 = new Person("Charlie");
+console.log(person1.name); // Output: Charlie
+```
+
+---
+
+#### 6. **Arrow Function Context**
+Arrow functions do not have their own `this`. Instead, they inherit `this` from their surrounding lexical scope.
+
+**Example**:
+```javascript
+const obj = {
+  name: "Daisy",
+  greet: function () {
+    const arrowFn = () => {
+      console.log(this.name); // Inherits `this` from greet function
+    };
+    arrowFn();
+  }
+};
+
+obj.greet(); // Output: Daisy
+```
+
+---
+
+### **Understanding `this` in Different Scenarios**
+
+1. **Inside Global Scope**:
+   ```javascript
+   console.log(this); // Window (in browsers)
+   ```
+
+2. **Inside a Regular Function**:
+   ```javascript
+   function test() {
+     console.log(this);
+   }
+   test(); // Global object (non-strict), undefined (strict mode)
+   ```
+
+3. **Inside an Object Method**:
+   ```javascript
+   const obj = { greet: function () { console.log(this); } };
+   obj.greet(); // obj
+   ```
+
+4. **Inside an Arrow Function**:
+   ```javascript
+   const obj = {
+     name: "Zoe",
+     greet: () => {
+       console.log(this); // Global object (inherited from lexical scope)
+     }
+   };
+   obj.greet();
+   ```
+
+5. **With Explicit Binding**:
+   ```javascript
+   const obj = { name: "Anna" };
+   function greet() {
+     console.log(this.name);
+   }
+   greet.call(obj); // Anna
+   ```
+
+6. **Inside a Constructor Function**:
+   ```javascript
+   function Car(model) {
+     this.model = model;
+   }
+   const car1 = new Car("Tesla");
+   console.log(car1.model); // Tesla
+   ```
+
+Let me know if you'd like to explore any specific scenarios further!

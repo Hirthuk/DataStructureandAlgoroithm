@@ -1,6 +1,0 @@
-In JavaScript, reference types refer to objects and arrays that store references to the memory 
-location where the actual data is stored, rather than storing the data itself directly in the variable.
-
-When you assign a reference type (e.g., an object or array) to a variable, the variable doesn’t hold 
-the actual object itself.
-Instead, it holds a reference (or pointer) to the location in memory where the object is stored.

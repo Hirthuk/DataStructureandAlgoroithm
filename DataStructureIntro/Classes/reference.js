@@ -5,7 +5,7 @@
 let x = 0;
 let y = x; //Y Gets copy of x now y = 10;
 // console.log(y);
- y = 20; // ybecame 20 now that doesn't change the x value
+ y = 20; // y became 20 now that doesn't change the x value
 
  const object1 = {value: 10};
  const object2 = object1; //Memory location reference is now matched

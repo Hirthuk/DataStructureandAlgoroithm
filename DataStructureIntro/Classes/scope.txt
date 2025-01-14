@@ -1,0 +1,84 @@
+### **Scope in JavaScript (Short Explanation)**
+
+**Scope** in JavaScript refers to the area of the code where a variable is accessible. It determines where variables, functions, and objects are visible and usable.
+
+---
+
+### **Types of Scope**:
+1. **Global Scope**:
+   - Variables declared outside any function or block belong to the global scope.
+   - They are accessible throughout the code.
+   ```javascript
+   var globalVar = "I am global";
+   console.log(globalVar); // Accessible here
+   function test() {
+     console.log(globalVar); // Accessible here too
+   }
+   ```
+
+2. **Function Scope**:
+   - Variables declared with `var` inside a function are scoped to that function.
+   - Not accessible outside the function.
+   ```javascript
+   function test() {
+     var localVar = "I am local";
+     console.log(localVar); // Accessible here
+   }
+   console.log(localVar); // Error: localVar is not defined
+   ```
+
+3. **Block Scope**:
+   - Variables declared with `let` and `const` are block-scoped.
+   - They are only accessible within the block `{}` where they are declared.
+   ```javascript
+   {
+     let blockVar = "I am block-scoped";
+     console.log(blockVar); // Accessible here
+   }
+   console.log(blockVar); // Error: blockVar is not defined
+   ```
+
+4. **Lexical Scope**:
+   - Functions in JavaScript are lexically scoped, meaning they have access to variables from their parent function or global scope where they were defined.
+   ```javascript
+   function outer() {
+     let outerVar = "Outer variable";
+     function inner() {
+       console.log(outerVar); // Can access outerVar
+     }
+     inner();
+   }
+   outer();
+   ```
+
+---
+
+### **Key Points**:
+- **Scope Chain**: If a variable isn't found in the current scope, JavaScript looks up the chain to parent scopes until it reaches the global scope.
+- **Hoisting**: Variables declared with `var` are hoisted to the top of their scope, but they remain undefined until initialized. `let` and `const` are also hoisted but are in a "temporal dead zone" until their declaration.
+- **Closures**: Functions retain access to their outer scope even after the outer function has finished execution.
+
+---
+
+### **Scope Example**:
+```javascript
+let globalVar = "Global";
+
+function outer() {
+  let outerVar = "Outer";
+
+  function inner() {
+    let innerVar = "Inner";
+    console.log(globalVar); // Global
+    console.log(outerVar);  // Outer
+    console.log(innerVar);  // Inner
+  }
+
+  inner();
+  console.log(innerVar); // Error: innerVar is not defined
+}
+
+outer();
+```
+
+This shows how variables are accessed based on where they are declared. Let me know if you'd like further clarification!
