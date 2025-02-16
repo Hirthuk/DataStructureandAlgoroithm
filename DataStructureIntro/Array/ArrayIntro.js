@@ -15,8 +15,14 @@ array.unshift('Sharan'); // Add elements to starting of the array - O(n) - hifti
 
 array.shift(); //Removes first element of the array - O(n);
 
-array.splice(5,0,"5"); //Adding element to the array in particular position - O(n)
+array.splice(5,0,"5"); //remove element to the array in particular position - O(n)
 // splice(start, deleteCount, item1, ...)
+const arr = [1, 2, 3, 4, 5];
+
+// Remove the element at index 2
+arr.splice(2, 1); // Removes one element at index 2
+
+console.log(arr); // Output: [1, 2, 4, 5]
 
 // Accesing elements
 array[0]; //Direct Access to element - O(1);
