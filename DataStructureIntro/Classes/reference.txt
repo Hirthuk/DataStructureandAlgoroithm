@@ -8,7 +8,9 @@ Instead, it holds a reference (or pointer) to the location in memory where the o
 Reference types in JavaScript
 
 
-In JavaScript, **reference types** refer to objects and arrays, where variables hold a reference (or pointer) to the memory location of the data rather than the actual data itself. This contrasts with **primitive types** like `string`, `number`, `boolean`, etc., where variables store the actual value.
+In JavaScript, **reference types** refer to objects and arrays, where variables hold a reference (or pointer)
+ to the memory location of the data rather than the actual data itself. 
+This contrasts with **primitive types** like `string`, `number`, `boolean`, etc., where variables store the actual value.
 
 ### Characteristics of Reference Types:
 1. **Stored in Heap Memory**: The data is stored in the heap, and the variable contains a reference to that memory location.

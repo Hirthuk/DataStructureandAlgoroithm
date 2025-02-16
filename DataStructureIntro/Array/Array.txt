@@ -2,7 +2,7 @@ An **array** is a linear data structure that stores elements in contiguous memor
 allowing random access using indices. Arrays are efficient for static data with predictable sizes but 
 are less flexible than dynamic structures like linked lists.
 
-BigO Notations
+BigO Notations for the Array datastructure
 Insertion - O(n)
 Deletion - O(n)
 Access - O(1) - Constant time complexity

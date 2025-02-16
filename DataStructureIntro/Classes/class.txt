@@ -1,6 +1,7 @@
 ### **Classes in JavaScript**
 
-Classes in JavaScript are a syntactical sugar over the **prototypal inheritance model**, introduced in ES6. They provide a cleaner and more intuitive way to create objects and deal with inheritance.
+Classes in JavaScript are a syntactical sugar over the **prototypal inheritance model**, introduced in ES6. 
+They provide a cleaner and more intuitive way to create objects and deal with inheritance.
 
 ---
 
@@ -93,13 +94,12 @@ class Animal {
 }
 
 class Dog extends Animal {
-  speak() {
-    console.log(`${this.name} barks.`);
-  }
+  speak() 
+  
 }
 
 const dog = new Dog("Buddy");
-dog.speak(); // Buddy barks.
+dog.speak(); // Buddy makes a noise.
 ```
 
 ---
@@ -195,6 +195,8 @@ dog.speak(); // Buddy barks.
    const timer = new Timer();
    setTimeout(timer.start, 1000); // Error: 'this' is undefined
    ```
+The start function is detached from the timer object when it is passed as an argument to setTimeout.
+At this point, this is no longer bound to the Timer instance.
 
 3. **Static Methods Misuse**:
    - Attempting to access static methods or properties through instances instead of the class.
@@ -205,4 +207,3 @@ dog.speak(); // Buddy barks.
 - When you need object-oriented features like inheritance, encapsulation, and polymorphism.
 - When creating multiple instances of an object with shared methods and properties.
 
-Let me know if you'd like more examples or clarification!

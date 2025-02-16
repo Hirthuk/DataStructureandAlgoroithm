@@ -1,6 +1,7 @@
 ### **Context in JavaScript**
 
-In JavaScript, **context** refers to the value of `this` within a particular part of code, which depends on how the function is called. Unlike scope, which deals with variable accessibility, context is more about the object that is "executing" the current code.
+In JavaScript, **context** refers to the value of `this` within a particular part of code, which depends on 
+how the function is called. Unlike scope, which deals with variable accessibility, context is more about the object that is "executing" the current code.
 
 ---
 
@@ -161,5 +162,3 @@ obj.greet(); // Output: Daisy
    const car1 = new Car("Tesla");
    console.log(car1.model); // Tesla
    ```
-
-Let me know if you'd like to explore any specific scenarios further!

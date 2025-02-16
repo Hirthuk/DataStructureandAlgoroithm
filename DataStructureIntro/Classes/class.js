@@ -90,12 +90,11 @@ class BankAccount {
     this.#balance = amount;
   }
   withdraw(amount) {
-    if(this.#balance < amount){
-        console.log("Can't with draw");
-        return this.#balance;
-    }
-    else{
-        this.#balance = this.#balance - amount;
+    if (this.#balance < amount) {
+      console.log("Can't with draw");
+      return this.#balance;
+    } else {
+      this.#balance = this.#balance - amount;
     }
   }
   getBalance() {
@@ -121,33 +120,32 @@ class Cirlce extends Shape {
     super();
     this.radius = radius;
   }
-  area(){
-    return this.radius*this.radius;
+  area() {
+    return this.radius * this.radius;
   }
 }
 
 class Rectangel extends Shape {
-    constructor(width, height){
-        super()
-        this.width = width;
-        this.height = height;
-    }
-    area(){
-        return this.width*this.height;
-    }
+  constructor(width, height) {
+    super();
+    this.width = width;
+    this.height = height;
+  }
+  area() {
+    return this.width * this.height;
+  }
 }
 
 const circle = new Cirlce(10);
 console.log(circle.area());
-const rectangle  = new Rectangel(5,10);
+const rectangle = new Rectangel(5, 10);
 console.log(rectangle.area());
 
 // Task 8 - Practice static methods
-class Static{
-    static add(a,b){
-        return a+b;
-    }
+class Static {
+  static add(a, b) {
+    return a + b;
+  }
 }
 
-console.log(Static.add(2,3));
-
+console.log(Static.add(2, 3));
