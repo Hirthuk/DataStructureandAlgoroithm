@@ -160,5 +160,6 @@ Big-O notation is used to express **space complexity** the same way as time comp
 - Recursive algorithms often have higher space complexity due to the call stack.  
 
 ### Key Difference from Time Complexity:  
-While time complexity measures the **number of operations**, space complexity measures the **amount of memory** used. Both are essential to evaluating an algorithm's efficiency.
+While time complexity measures the **number of operations**, 
+space complexity measures the **amount of memory** used. Both are essential to evaluating an algorithm's efficiency.
 
