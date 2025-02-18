@@ -47,3 +47,23 @@ var twoSum1 = function (nums, target) {
         }
     }
 };
+
+// Even worst case this is
+// Time complexity atleast is O(n) - bcz we have multiple O(n) and haven't used nested loop
+var twoSum = function (nums, target) {
+  var remain = 0;
+  const ReturnArray = [];
+  for (let i = 0; i <= nums.length; i++) {
+      remain = target - nums[i]
+      const check = nums.includes(remain)
+      const index = nums.indexOf(remain)
+      if (check && index != i) {
+          console.log(nums.includes(remain))
+          ReturnArray.push(i);
+          const numRemain = nums.indexOf(remain);
+          ReturnArray.push(numRemain);
+          return ReturnArray;
+      }
+      
+  }
+};

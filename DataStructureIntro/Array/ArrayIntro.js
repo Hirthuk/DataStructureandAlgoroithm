@@ -63,8 +63,8 @@ array.length - // length: Returns the number of elements - O(1)
   console.log(array.toString()); // Converts array to string
 
 // Set like operators
-
-array.includes("a"); // Check the existence of the element O(n);
+const numbers = [2];
+console.log(numbers.includes(2)); // Check the existence of the element O(n);
 const ArraySet = new Set(array); // O(n) - Create new set with the array elements to avoid duplicate elements
 console.log(ArraySet);
 
