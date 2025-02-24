@@ -1,5 +1,6 @@
-const array = [1,2,3,4];
-const array2 = [1,2]
-const result = array.concat(array2);
-
-console.log(result);
+let user = {
+    name1: "Bob",
+    age: 30
+};
+const value = "name1";
+console.log(user.value); // "Bob"

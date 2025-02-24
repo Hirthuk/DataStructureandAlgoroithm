@@ -1,0 +1,89 @@
+## **📌 What is a Hash Table?**
+A **Hash Table** (also called a **Hash Map**) is a data structure that stores key-value pairs. It uses a **hash function** to compute an index (or hash code) for a given key, which determines where the value is stored in memory.
+
+### **🔹 Key Characteristics of a Hash Table**
+1. **Stores key-value pairs** – Similar to an object or dictionary.
+2. **Uses a hash function** – Converts the key into an index.
+3. **Fast operations** – Lookup, insert, and delete operations are on average **O(1)**.
+4. **Efficient storage** – Can store large amounts of data efficiently.
+
+---
+
+## **📌 How a Hash Table Works**
+1. **Hashing the Key**  
+   - A hash function converts the key into an index (numeric value).  
+   - Example: `"apple"` → `hashFunction("apple") = 4`
+
+2. **Storing the Key-Value Pair**  
+   - The key-value pair is stored at the computed index in an array.
+
+3. **Retrieving a Value**  
+   - The key is passed through the same hash function to find its index and retrieve the value.
+
+---
+
+## **📌 Hash Table Example in JavaScript**
+JavaScript does not have a built-in Hash Table, but we use **Objects** or **Map** as hash maps.
+
+### **1️⃣ Hash Table using an Object**
+```js
+let hashTable = {};
+hashTable["name"] = "Alice";
+hashTable["age"] = 25;
+
+console.log(hashTable["name"]); // Output: Alice
+console.log(hashTable["age"]);  // Output: 25
+```
+✅ **Pros:**  
+- Simple and easy to use.  
+- Good for small data sets.  
+
+❌ **Cons:**  
+- Keys can only be strings or symbols.  
+- Slower for large data due to hashing collisions.  
+
+---
+
+### **2️⃣ Hash Table using `Map` (Better Performance)**
+```js
+let hashTable = new Map();
+hashTable.set("name", "Alice");
+hashTable.set("age", 25);
+
+console.log(hashTable.get("name")); // Output: Alice
+console.log(hashTable.get("age"));  // Output: 25
+```
+✅ **Advantages of `Map` over Objects:**  
+- Keys can be **any data type** (not just strings).  
+- **Maintains insertion order**.  
+- **Faster lookups** in large datasets.  
+
+---
+
+## **📌 Time Complexity of Hash Tables**
+| Operation  | **Average Case (O)** | **Worst Case (O)** |
+|------------|----------------------|--------------------|
+| **Insert**  | O(1) | O(n) (if collisions occur) |
+| **Search**  | O(1) | O(n) (in bad cases) |
+| **Delete**  | O(1) | O(n) |
+
+- **Best Case:** **O(1)** (direct access using the hash function).  
+- **Worst Case:** **O(n)** (if there are too many collisions).  
+
+---
+
+## **📌 Key Differences: Hash Table vs. Object**
+| Feature           | **Hash Table (`Map`)** | **Object** |
+|-------------------|---------------------|------------|
+| **Key Type**      | Any type (strings, numbers, objects) | Only strings or symbols |
+| **Performance**   | Faster for large data | Slower for large data |
+| **Ordering**      | Maintains insertion order | No guaranteed order |
+
+---
+
+## **📌 Summary**
+✅ **Hash Tables provide fast lookup, insertion, and deletion.**  
+✅ **JavaScript uses Objects and Map to implement Hash Tables.**  
+✅ **Use `Map` for better performance in large datasets.**  
+
+Let me know if you need more details! 🚀
