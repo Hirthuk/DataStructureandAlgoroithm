@@ -1,11 +1,5 @@
-// Just to check the things hows work
+const array = [1,2,3,4];
+const array2 = [1,2]
+const result = array.concat(array2);
 
-const object = {
-    MyKey: "Sharan",
-}
-
-// object["sharan"] = "Anothername";
-
-
-console.log(object["MyKey"]);
-console.log(object.MyKey);
+console.log(result);
