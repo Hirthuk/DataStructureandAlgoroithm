@@ -86,4 +86,3 @@ console.log(hashTable.get("age"));  // Output: 25
 ✅ **JavaScript uses Objects and Map to implement Hash Tables.**  
 ✅ **Use `Map` for better performance in large datasets.**  
 
-Let me know if you need more details! 🚀
