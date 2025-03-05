@@ -1,4 +1,12 @@
 // Class for a simple Singly Linked List
+// Removing means just removing the pointer for the before elements
+// This will remove the pointer so it will be removed by javascrpt garbage collector
+// This is and all object so it's all pointer knowing about pointer is very important
+// Think linkedlist as chain so if you want to add anything loop through and findout the
+// before connected and after connected chain. just add element to before and after chain
+// Wants to remove means same.. but just replace first chain and connect with third chain
+// So second chain in btw we wanna remove will be alone without conecton will be removed by javascript 
+// Garbage collector
 class LinkedList {
   constructor(value) {
     // Creating the first node (head)
@@ -88,17 +96,25 @@ class LinkedList {
     this.length++
 }
 remove(index){
-    if(index > this.length){
+    if(index >= this.length || index < 0){
         return "No index found"
     }
-    if(index === this.length){
+    if(index === this.length -1){
         this.tail.next = null
     }
+    if(index === 0){
+      this.head = this.head.next;
+      this.length --
+      return;
+    }
     let currentNode = this.head
-    for(let i=0; i < index -1; i++){
+    let previousNode = null;
+    for(let i=0; i < index; i++){
+        previousNode = currentNode;
         currentNode = currentNode.next
     }
-    currentNode.next = null;
+    previousNode.next = currentNode.next;
+    this.length--
 }
 
 }
@@ -117,6 +133,8 @@ myLinkedList.prepend(15); // Linked list becomes: 15 -> 16 -> 10 -> 5
 // console.log(myLinkedList);
 myLinkedList.insert(1, 1);
 myLinkedList.insert(4,11);
-myLinkedList.remove(5);
+myLinkedList.remove(3);
+myLinkedList.remove(0);
+// console.log(myLinkedList.printList());
 console.log(myLinkedList);
 console.log(myLinkedList.length);
