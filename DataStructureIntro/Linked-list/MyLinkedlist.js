@@ -5,7 +5,7 @@
 // Think linkedlist as chain so if you want to add anything loop through and findout the
 // before connected and after connected chain. just add element to before and after chain
 // Wants to remove means same.. but just replace first chain and connect with third chain
-// So second chain in btw we wanna remove will be alone without conecton will be removed by javascript 
+// So second chain in btw we wanna remove will be alone without conecton will be removed by javascript
 // Garbage collector
 class LinkedList {
   constructor(value) {
@@ -69,54 +69,65 @@ class LinkedList {
   insert(index, value) {
     // Handle edge cases (if index is out of bounds)
     if (index < 0 || index > this.length) {
-        console.log("Invalid index");
-        return;
+      console.log("Invalid index");
+      return;
     }
 
     // Create a new node
     let newNode = {
-        value: value,
-        next: null
+      value: value,
+      next: null,
     };
 
     // If inserting at the head
     if (index === 0) {
-        newNode.next = this.head;
-        this.head = newNode;
-        this.length++;
-        return;
+      newNode.next = this.head;
+      this.head = newNode;
+      this.length++;
+      return;
     }
-    let currentNode = this.head
+    let currentNode = this.head;
     // 10 -> (99) 5 -> 16
-    for(let i=0; i < index -1; i++){
-        currentNode = currentNode.next;
+    for (let i = 0; i < index - 1; i++) {
+      currentNode = currentNode.next;
     }
     newNode.next = currentNode.next;
     currentNode.next = newNode;
-    this.length++
-}
-remove(index){
-    if(index >= this.length || index < 0){
-        return "No index found"
+    this.length++;
+  }
+  remove(index) {
+    if (index >= this.length || index < 0) {
+      return "No index found";
     }
-    if(index === this.length -1){
-        this.tail.next = null
+    if (index === this.length - 1) {
+      this.tail.next = null;
     }
-    if(index === 0){
+    if (index === 0) {
       this.head = this.head.next;
-      this.length --
+      this.length--;
       return;
     }
-    let currentNode = this.head
+    let currentNode = this.head;
     let previousNode = null;
-    for(let i=0; i < index; i++){
-        previousNode = currentNode;
-        currentNode = currentNode.next
+    for (let i = 0; i < index; i++) {
+      previousNode = currentNode;
+      currentNode = currentNode.next;
     }
     previousNode.next = currentNode.next;
-    this.length--
-}
-
+    this.length--;
+  }
+  reverse() {
+    // https://www.youtube.com/watch?v=S9kMVEUg-x4
+    let prev = null;
+    let current = this.head;
+    while (current) {
+      let next = current.next;
+      current.next = prev;
+      prev = current;
+      current = next;
+    }
+    this.head = prev;
+  }
 }
 
 // Creating a new linked list with initial value 10
@@ -132,9 +143,8 @@ myLinkedList.prepend(15); // Linked list becomes: 15 -> 16 -> 10 -> 5
 // Displaying the linked list structure
 // console.log(myLinkedList);
 myLinkedList.insert(1, 1);
-myLinkedList.insert(4,11);
-myLinkedList.remove(3);
-myLinkedList.remove(0);
-// console.log(myLinkedList.printList());
-console.log(myLinkedList);
-console.log(myLinkedList.length);
+myLinkedList.insert(4, 11);
+console.log(myLinkedList.printList());
+myLinkedList.reverse();
+console.log(myLinkedList.printList());
+
