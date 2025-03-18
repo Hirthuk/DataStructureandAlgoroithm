@@ -1,0 +1,208 @@
+Here is the **Complete Guide to Stacks and Queues** with **JavaScript examples** for better understanding. 🚀  
+
+---
+
+## **1. Stack**
+### **Definition**
+A **Stack** is a linear data structure that follows the **LIFO (Last In, First Out)** principle.  
+- The **last element** added is the **first one** to be removed.
+
+### **Basic Operations**
+1. **Push(x):** Insert an element into the stack.
+2. **Pop():** Remove the top element.
+3. **Peek():** Get the top element without removing it.
+4. **isEmpty():** Check if the stack is empty.
+5. **Size():** Get the number of elements.
+
+### **Implementation in JavaScript**
+```javascript
+class Stack {
+  constructor() {
+    this.stack = [];
+  }
+
+  push(item) {
+    this.stack.push(item);
+  }
+
+  pop() {
+    return this.stack.length ? this.stack.pop() : "Stack is Empty";
+  }
+
+  peek() {
+    return this.stack.length ? this.stack[this.stack.length - 1] : "Stack is Empty";
+  }
+
+  isEmpty() {
+    return this.stack.length === 0;
+  }
+
+  size() {
+    return this.stack.length;
+  }
+}
+
+// Usage
+const s = new Stack();
+s.push(10);
+s.push(20);
+console.log(s.pop());  // Output: 20
+console.log(s.peek()); // Output: 10
+console.log(s.isEmpty()); // Output: false
+```
+
+---
+
+### **Use Cases of Stack**
+1. **Function Calls (Recursion)**
+   - Example: Handling function calls in JavaScript.
+  
+2. **Expression Evaluation**
+   - Example: Converting Infix to Postfix.
+
+3. **Undo-Redo in Editors**
+   - Example: "Ctrl + Z" functionality.
+
+4. **Browser Back/Forward**
+   - Example: Tracking page history.
+
+5. **Balanced Parentheses Checking**
+   - Example: `{[()()]}` validation.
+
+---
+
+### **Advantages of Stack**
+✅ Simple to implement  
+✅ Efficient push/pop operations (**O(1)**)  
+✅ Useful in recursive problems  
+
+### **Disadvantages of Stack**
+❌ Only top element is accessible  
+❌ Can lead to **stack overflow** in deep recursion  
+
+---
+
+## **2. Queue**
+### **Definition**
+A **Queue** is a linear data structure that follows **FIFO (First In, First Out)**.  
+- The **first element** inserted is the **first one** to be removed.
+
+### **Basic Operations**
+1. **Enqueue(x):** Insert an element.
+2. **Dequeue():** Remove the front element.
+3. **Front():** Get the front element without removing it.
+4. **isEmpty():** Check if the queue is empty.
+5. **Size():** Get the number of elements.
+
+### **Implementation in JavaScript**
+```javascript
+class Queue {
+  constructor() {
+    this.queue = [];
+  }
+
+  enqueue(item) {
+    this.queue.push(item);
+  }
+
+  dequeue() {
+    return this.queue.length ? this.queue.shift() : "Queue is Empty";
+  }
+
+  front() {
+    return this.queue.length ? this.queue[0] : "Queue is Empty";
+  }
+
+  isEmpty() {
+    return this.queue.length === 0;
+  }
+
+  size() {
+    return this.queue.length;
+  }
+}
+
+// Usage
+const q = new Queue();
+q.enqueue(1);
+q.enqueue(2);
+console.log(q.dequeue());  // Output: 1
+console.log(q.front()); // Output: 2
+console.log(q.isEmpty()); // Output: false
+```
+
+---
+
+### **Use Cases of Queue**
+1. **Task Scheduling (Round Robin)**
+   - Example: CPU process scheduling.
+
+2. **Print Queue in Printer**
+   - Example: Handling multiple print jobs.
+
+3. **BFS (Breadth-First Search) Algorithm**
+   - Example: Finding the shortest path in a graph.
+
+4. **Handling Requests in Web Servers**
+   - Example: Processing user requests sequentially.
+
+5. **Message Queues in Distributed Systems**
+   - Example: RabbitMQ, Kafka, etc.
+
+---
+
+### **Advantages of Queue**
+✅ Fair (FIFO ensures fairness)  
+✅ Efficient enqueue/dequeue operations (**O(1)**)  
+✅ Useful for handling **real-world tasks**  
+
+### **Disadvantages of Queue**
+❌ Slower than stack for quick access  
+❌ Fixed size in an array-based implementation  
+
+---
+
+## **3. Stack vs Queue - When to Use Which?**
+| Feature | Stack (LIFO) | Queue (FIFO) |
+|---------|-------------|-------------|
+| Access | Only top element | First element |
+| Use Case | Function calls, Undo/Redo, Parentheses Matching | Task Scheduling, BFS, Print Spooling |
+| Speed | O(1) for push/pop | O(1) for enqueue/dequeue, but O(n) for accessing middle elements |
+| Fairness | Last-in-first-out (Not fair) | First-in-first-out (Fair) |
+| Space Complexity | Less (No shifting needed) | More (Shifting may be required in arrays) |
+
+---
+
+## **4. Why Not Other Data Structures?**
+| Scenario | Stack | Queue | Other Alternatives |
+|----------|-------|-------|--------------------|
+| Function Calls | ✅ | ❌ | None (Stack is best) |
+| Undo-Redo | ✅ | ❌ | None (Stack is best) |
+| Task Scheduling | ❌ | ✅ | Heap (Priority Queue for priority-based scheduling) |
+| BFS Algorithm | ❌ | ✅ | Graph data structures |
+| Balancing Symbols | ✅ | ❌ | None (Stack is best) |
+
+---
+
+## **5. Choosing Between Stack and Queue**
+- **Use Stack** when you need **LIFO behavior**.
+- **Use Queue** when you need **FIFO behavior**.
+- **Use Priority Queue** when elements need **priority-based** removal.
+- **Use Deque** when **insertion and deletion** are needed from both ends.
+
+---
+
+### **Conclusion**
+Stacks and Queues are **fundamental data structures** with their specific use cases.  
+- **Stack** is best for **backtracking, undo/redo, recursion**.  
+- **Queue** is best for **FIFO-based processing like scheduling, BFS**.  
+
+Stack vs Queue implementation on Array or LinkedList
+
+Stack -> LIFO - Last in first out means We will be mostly removing last element -> Array and linkdedlist
+both are suitable because array removing last element doesn't traverse elements also no index shifting
+needed array.pop(). For linked list we will remove last element map it  with tail both are O(1).
+
+Queue -> FIFO - First in first out -> So We will be removing first element first. We can implemenet it
+in Linked list O(1) -> Just head have to be re mapped. For array it index shifting till the end of the
+array so it's O(n) not the better choice
