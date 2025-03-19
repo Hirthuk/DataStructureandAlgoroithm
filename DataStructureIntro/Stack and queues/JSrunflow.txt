@@ -1,0 +1,223 @@
+### **Understanding JavaScript Execution: Synchronous & Asynchronous, Single-Threaded vs Multi-Threaded, Call Stack, Web API, Event Loop, and Queues**
+
+JavaScript is often described as **single-threaded**, **synchronous**, and **asynchronous**. Let’s break these concepts down step by step for better understanding.
+
+---
+
+## **1. JavaScript Execution Model**
+JavaScript runs in a **single-threaded** environment, meaning it executes one command at a time in a sequential manner. The main JavaScript execution thread follows a **synchronous** model by default.
+
+However, modern JavaScript can also handle **asynchronous** operations using **callbacks, promises, and async/await**, thanks to **Web APIs, event loop, and task queues**.
+
+---
+
+## **2. Call Stack (Synchronous Execution)**
+The **Call Stack** is a data structure that keeps track of function execution in JavaScript. It follows **LIFO (Last In, First Out)**.
+
+### **How Call Stack Works**
+- When a function is called, it is pushed onto the **Call Stack**.
+- When the function finishes execution, it is popped off the stack.
+- JavaScript executes code **line by line**.
+
+### **Example (Synchronous Code)**
+```js
+function first() {
+    console.log("First");
+}
+
+function second() {
+    console.log("Second");
+}
+
+function third() {
+    console.log("Third");
+}
+
+first();
+second();
+third();
+```
+### **Execution in Call Stack**
+1. `first()` is pushed to the Call Stack → Executes → Pops out.
+2. `second()` is pushed to the Call Stack → Executes → Pops out.
+3. `third()` is pushed to the Call Stack → Executes → Pops out.
+
+📌 **Since JavaScript is single-threaded, it can only execute one task at a time in this synchronous execution model.**
+
+---
+
+## **3. Web APIs (Handling Asynchronous Tasks)**
+JavaScript is **not truly multi-threaded** but can perform **asynchronous tasks** using **Web APIs** provided by the browser.
+
+Examples of Web APIs:
+- `setTimeout()`
+- `setInterval()`
+- `fetch()`
+- `DOM events`
+- `Promises` and `async/await`
+
+Web APIs help JavaScript handle **asynchronous** tasks **without blocking the main thread**.
+
+### **Example (Asynchronous Code using setTimeout)**
+```js
+console.log("Start");
+
+setTimeout(() => {
+    console.log("Inside setTimeout");
+}, 2000);
+
+console.log("End");
+```
+### **Execution Flow**
+1. `"Start"` is printed **immediately**.
+2. `setTimeout()` moves the callback to the **Web API** (doesn’t block execution).
+3. `"End"` is printed **before** `"Inside setTimeout"` because JavaScript **does not wait** for `setTimeout` to finish.
+4. After 2 seconds, `"Inside setTimeout"` moves to the **Callback Queue** and waits for the Call Stack to be **empty** before execution.
+
+---
+
+## **4. Event Loop (Managing Asynchronous Execution)**
+The **Event Loop** is responsible for checking if the **Call Stack is empty** and if there are pending tasks in the **Callback Queue**.
+
+### **How the Event Loop Works**
+1. JavaScript executes synchronous code first.
+2. If an asynchronous function (like `setTimeout`) is called, it is sent to **Web API**.
+3. Once the **Web API task is completed**, its callback function is moved to the **Callback Queue**.
+4. The **Event Loop** continuously checks if the **Call Stack is empty**.
+5. If empty, it **moves the callback from the queue to the Call Stack** for execution.
+
+### **Example (Event Loop in Action)**
+```js
+console.log("Start");
+
+setTimeout(() => {
+    console.log("Async Task 1");
+}, 3000);
+
+setTimeout(() => {
+    console.log("Async Task 2");
+}, 1000);
+
+console.log("End");
+```
+### **Execution Order**
+1. `"Start"` is printed.
+2. `setTimeout()` tasks move to **Web API**.
+3. `"End"` is printed **before** async tasks.
+4. After 1 second → `"Async Task 2"` executes.
+5. After 3 seconds → `"Async Task 1"` executes.
+
+📌 **The Event Loop ensures that asynchronous code runs only when the main Call Stack is empty.**
+
+---
+
+## **5. Task Queues (Callback Queue vs Microtask Queue)**
+There are **two types of queues**:
+1. **Callback Queue (Task Queue)** → Handles `setTimeout`, `setInterval`, and other asynchronous functions.
+2. **Microtask Queue** → Handles `Promises`, `MutationObserver`, `queueMicrotask()`.  
+   - **Microtasks have higher priority than normal callbacks.**
+
+### **Example (Callback Queue vs Microtask Queue)**
+```js
+console.log("Start");
+
+setTimeout(() => {
+    console.log("setTimeout Callback");
+}, 0);
+
+Promise.resolve().then(() => {
+    console.log("Promise Callback");
+});
+
+console.log("End");
+```
+### **Execution Order**
+1. `"Start"` is printed.
+2. `setTimeout()` moves to **Web API** (Callback Queue).
+3. `Promise` is resolved → moves to **Microtask Queue**.
+4. `"End"` is printed.
+5. **Microtask Queue (Promise) executes first → "Promise Callback"**.
+6. **Callback Queue (setTimeout) executes → "setTimeout Callback"**.
+
+📌 **Promises (Microtasks) always execute before setTimeout (Callback Queue).**
+
+---
+
+## **6. Async/Await (Better Handling of Asynchronous Code)**
+Async/Await is syntactic sugar over Promises, making asynchronous code **look like synchronous code**.
+
+### **Example**
+```js
+async function fetchData() {
+    console.log("Fetching data...");
+
+    let result = await new Promise((resolve) => setTimeout(() => resolve("Data loaded"), 2000));
+
+    console.log(result);
+}
+
+console.log("Start");
+fetchData();
+console.log("End");
+```
+### **Execution Order**
+1. `"Start"` is printed.
+2. `fetchData()` starts, prints `"Fetching data..."`.
+3. `await` pauses execution for **2 seconds**.
+4. `"End"` is printed **before** `"Data loaded"`.
+5. After 2 seconds, `"Data loaded"` prints.
+
+📌 **Async/Await makes handling async operations cleaner without deeply nested callbacks.**
+
+---
+
+## **7. JavaScript is Single-Threaded but Non-Blocking**
+- JavaScript **runs on a single thread**, meaning **only one task runs at a time**.
+- It **uses Web APIs, Event Loop, and Queues** to handle multiple tasks **asynchronously**.
+- **Multi-threading is achieved indirectly using Web APIs** like `Web Workers` but is not part of the main JavaScript runtime.
+
+---
+
+## **8. Key Takeaways for Interviews**
+| Concept          | Explanation |
+|-----------------|------------|
+| **Single-threaded** | JavaScript executes one operation at a time. |
+| **Synchronous Execution** | Code runs line by line in order. |
+| **Call Stack** | Tracks function execution (LIFO). |
+| **Web API** | Handles async tasks like `setTimeout`, `fetch`. |
+| **Event Loop** | Moves tasks from Queue to Stack when it's empty. |
+| **Callback Queue** | Stores async tasks (e.g., `setTimeout`). |
+| **Microtask Queue** | Stores Promises and has **higher priority** than Callback Queue. |
+| **Async/Await** | Cleaner way to handle async tasks using Promises. |
+
+---
+
+## **Final Example (Combining All Concepts)**
+```js
+console.log("1");
+
+setTimeout(() => {
+    console.log("2 - setTimeout");
+}, 0);
+
+Promise.resolve().then(() => {
+    console.log("3 - Promise");
+});
+
+console.log("4");
+```
+### **Expected Output**
+```
+1
+4
+3 - Promise
+2 - setTimeout
+```
+📌 **Promise executes before setTimeout because it’s in the Microtask Queue (higher priority).**
+
+---
+
+### **Conclusion**
+- JavaScript is **single-threaded** but can handle **asynchronous** tasks efficiently.
+- The **Call Stack, Web API, Event Loop, and Task Queues** work together to enable non-blocking execution.
+- Understanding these concepts will help you **write optimized code and answer interview questions effectively**.
