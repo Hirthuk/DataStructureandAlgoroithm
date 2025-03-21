@@ -1,0 +1,60 @@
+Trees & Binary Trees in DSA (Short Explanation)
+A tree is a hierarchical data structure with nodes connected by edges. A binary tree is a special type where each node has at most two children (left & right).
+
+Types of Binary Trees:
+Full Binary Tree: Every node has 0 or 2 children.
+
+Complete Binary Tree: All levels are completely filled except possibly the last level, which is filled from left to right.
+
+### **Understanding O(log n) Complexity in Trees (DSA Perspective)**  
+
+In **DSA**, **O(log n)** complexity means that the number of operations grows logarithmically as the input size increases. In **tree-based data structures**, this occurs because the number of elements reduces **exponentially** with each step.  
+
+Why O(log n) in Trees? 
+1. **Binary Search Tree (BST)**: Searching, inserting, or deleting an element in a **balanced BST** takes **O(log n)** time because, at each step, we **divide the tree in half** (like binary search).  
+2. **Heap Operations**: In a **binary heap**, operations like insertion and deletion take **O(log n)** since elements are adjusted along the height of the tree.  
+3. **Balanced Trees (AVL, Red-Black)**: Rotations and rebalancing operations maintain **logarithmic height**, ensuring efficient lookups.  
+
+Why Logarithmic?
+- In a balanced binary tree, the **height (h) ≈ log₂(n)** (since each level has `2^i` nodes).  
+- Operations (search, insert, delete) depend on height, leading to **O(log n)** time complexity.  
+
+Example
+For a **BST with 1024 nodes**, the worst-case search takes **log₂(1024) = 10** steps instead of **1024** in an unoptimized list (O(n)).  
+
+Thus, **O(log n)** is preferred in tree-based structures for **fast searching and modifications** compared to linear structures. 🚀
+
+There are many Types of Trees
+Lets learn about Binary tree here
+
+Binary search tree(Type of Binary tree)
+
+### **Binary Tree Types & Binary Search Trees (BST) – DSA & Interview Perspective**  
+
+#### **1. Binary Tree Overview**  
+A **binary tree** is a tree where each node has at most **two children (left and right).**  
+
+#### **2. Binary Search Tree (BST)**  
+A **BST** is a binary tree where:  
+- Left subtree contains **values smaller** than the node.  
+- Right subtree contains **values greater** than the node.  
+- No duplicate values (in a strict BST).  
+
+### **3. Balanced vs. Unbalanced BST**  
+
+| Type | Definition | Pros | Cons |
+|------|-----------|------|------|
+| **Balanced BST** | A BST where height is **O(log n)** (e.g., **AVL Tree, Red-Black Tree**). | - Faster **search, insert, delete** (**O(log n)**).<br>- Avoids **skewed tree issues**. | - **More complex** to implement.<br>- **Extra rotations** needed to maintain balance. |
+| **Unbalanced BST** | A BST where height can be **O(n)** (e.g., **Skewed Tree**). | - **Easier** to implement.<br>- Good for sorted or near-sorted data insertion. | - **Slow operations (O(n))** in worst case.<br>- Leads to **degenerated tree (like a linked list)**. |
+
+### **4. How to Mitigate Unbalanced BST Issues?**  
+- **Use Self-Balancing BSTs**:  
+  - **AVL Tree** (strict balancing, faster lookup).  
+  - **Red-Black Tree** (looser balancing, better for insert/delete).  
+- **Use B-Trees for large datasets** (e.g., databases).  
+- **Rebalance periodically** (if using a standard BST).  
+
+### **5. Key Takeaway**  
+- **Balanced BSTs (O(log n))** are **better** for fast operations.  
+- **Unbalanced BSTs (O(n))** can degrade performance.  
+- **Self-balancing trees** (AVL, Red-Black) **mitigate** the issue for optimal efficiency. 🚀
